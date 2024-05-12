@@ -47,7 +47,7 @@ class Server:
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """Retrieves information about a page.
         """
-        dataset_page = self.get_page
+        dataset_page = self.get_page()
         dataset_len = len(self.dataset())
         start, end = index_range(page, page_size)
         nxt = page + 1 if end < dataset_len else None
