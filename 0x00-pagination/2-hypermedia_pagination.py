@@ -61,6 +61,6 @@ class Server:
             'page': page,
             'data': dataset_page,
             'next_page': nxt,
-            'prev_page':prev,
+            'prev_page': prev,
             'total_pages': total_pages
         }
