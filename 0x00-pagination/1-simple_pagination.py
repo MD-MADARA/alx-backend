@@ -10,8 +10,9 @@ from typing import List, Tuple
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """Retrieves the index range from a given page and page size.
     """
-
-    return ((page - 1) * page_size, ((page - 1) * page_size) + page_size)
+    end_index = (page * page_size)
+    start_index = end_index - page_size
+    return (start_index, end_index)
 
 
 class Server:
@@ -39,7 +40,6 @@ class Server:
         assert type(page) == int and type(page_size) == int
         assert page > 0 and page_size > 0
         start, end = index_range(page, page_size)
-        data = self.dataset()
-        if start > len(data):
+        if start > len(self.__dataset):
             return []
-        return data[start:end]
+        return self.__dataset[start: end]
