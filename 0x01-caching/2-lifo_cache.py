@@ -4,14 +4,14 @@
 from base_caching import BaseCaching
 
 
-class FIFOCache(BaseCaching):
+class LIFOCache(BaseCaching):
     """ FIFO caching system
     """
     def put(self, key, item):
         """ assign to cache_data the item value for the key key
         """
-        self.cache_data[key] = item
         if key and item:
+            self.cache_data[key] = item
             if len(self.cache_data) > self.MAX_ITEMS:
                 discarded = list(self.cache_data.keys())[-1]
                 del self.cache_data[discarded]

@@ -10,8 +10,8 @@ class FIFOCache(BaseCaching):
     def put(self, key, item):
         """ assign to cache_data the item value for the key key
         """
-        self.cache_data[key] = item
         if key and item:
+            self.cache_data[key] = item
             if len(self.cache_data) > self.MAX_ITEMS:
                 discarded = list(self.cache_data.keys())[0]
                 del self.cache_data[discarded]
@@ -21,3 +21,12 @@ class FIFOCache(BaseCaching):
         """ return the value in cache_data linked to key
         """
         return self.cache_data.get(key, None)
+
+
+my_cache = FIFOCache()
+my_cache.put("test1", "myValue")
+my_cache.put(None, "myValue")
+my_cache.print_cache()
+# my_cache.print_cache()
+# my_cache.put("test1", None)
+# my_cache.print_cache()
