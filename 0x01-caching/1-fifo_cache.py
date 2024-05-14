@@ -21,12 +21,3 @@ class FIFOCache(BaseCaching):
         """ return the value in cache_data linked to key
         """
         return self.cache_data.get(key, None)
-
-
-my_cache = FIFOCache()
-my_cache.put("test1", "myValue")
-my_cache.put(None, "myValue")
-my_cache.print_cache()
-# my_cache.print_cache()
-# my_cache.put("test1", None)
-# my_cache.print_cache()
