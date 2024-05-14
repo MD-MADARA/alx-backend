@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-""" BasicCache
+""" LIFOCache
 """
 from base_caching import BaseCaching
 
 
 class LIFOCache(BaseCaching):
-    """ FIFO caching system
+    """ LIFO caching system
     """
     def put(self, key, item):
         """ assign to cache_data the item value for the key key
